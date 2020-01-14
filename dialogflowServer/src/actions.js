@@ -4,17 +4,11 @@ const infosageService = require("./infosageService.js");
 
 const actions = {
   "AddMedication": (c) => {
-    if(!c.parameters.name) {
-      c.add("what is the name of the medication?");
-      return;
-    }
-
     infosageService.get("drugInfo", { name: c.parameters.name }).then((drugInfo) => {
       if(!drugInfo) {
-        c.setContext({ name: "ask_custom", lifespan: 1, params: { name: c.parameters.name } });
-        c.add("We couldn't find information on that medication. Would you like to add a custom record?");
+        c.setFollowupEvent({ name: "query_custom_medication" });
       } else {
-        c.setContext({ name: "add_medication_brand", lifespan: 1, params: { drugInfo: drugInfo } });
+        c.setContext({ name: "add_medication_brand", lifespan: 2, params: { drugInfo: drugInfo } });
 
         let brandNames = "";
         for(let i = 0; i < drugInfo.brandNames.length - 1; i++) {
@@ -33,10 +27,10 @@ const actions = {
     let context = c.getContext("add_medication_brand");
 
     if(drugInfo.brands.indexOf(c.parameters.brand) === -1) {
-      c.setContext({ name: "ask_custom", lifespan: 1, params: { name: c.parameters.name } });
+      c.setContext({ name: "ask_custom", lifespan: 2, params: { name: c.parameters.name } });
       c.add("We don't have any records of that brand. Would you like to add this as a custom record?");
     } else  {
-      c.setContext({ name: "add_medication_dosage", lifespan: 1, params: {
+      c.setContext({ name: "add_medication_dosage", lifespan: 2, params: {
         drugInfo: context.params.drugInfo,
         drugParams: { ...context.params.drugParams, brand: brand }
       } });
@@ -52,7 +46,7 @@ const actions = {
       c.add("There was an error adding the medication. Please try again");
     });
   },
-  "ask_custom_yes": (c) => {
+  "Query Custom Medication - yes": (c) => {
     let med_name = c.getContext("custom_medication").parameters.name;
     c.setFollowupEvent({ name: "add_custom", parameters: { name: med_name } });
   },

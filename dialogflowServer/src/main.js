@@ -1,4 +1,3 @@
-
 "use strict";
 
 const express = require("express");
@@ -8,7 +7,7 @@ const fulfillment = require("dialogflow-fulfillment");
 const actions = require("./actions.js");
 
 // Config
-const listen_port = 8080;
+const listen_port = 80;
 const dialogflow_users = {
   "dialogflow": process.env.DIALOGFLOW_PASSWORD
 };
