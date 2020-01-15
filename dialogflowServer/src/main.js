@@ -17,7 +17,7 @@ const app = express();
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
-  res.send("success");
+  res.send("success 2!");
 });
 
 app.post("/fulfillment", auth({ users: dialogflow_users }), (req, res) => {
