@@ -2,7 +2,7 @@
 
 const infosageService = require("./infosageService.js");
 
-const actions = {
+const intents = {
   "AddMedication": (c) => {
     infosageService.get("drugInfo", { name: c.parameters.name }).then((drugInfo) => {
       if(!drugInfo) {
@@ -62,4 +62,12 @@ const actions = {
     });
   }
 };
-exports.actionHandlers = actions;
+
+exports.getIntentMap = () => {
+  let map = new Map();
+  for(let intent in intents) {
+    map.set(intent, intents[intent]);
+  }
+
+  return map;
+}
