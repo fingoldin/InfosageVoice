@@ -3,7 +3,7 @@
 const infosageService = require("./infosageService.js");
 
 const intents = {
-  "AddMedication": (c) => {
+  "Add Medication": (c) => {
     infosageService.get("drugInfo", { name: c.parameters.name }).then((drugInfo) => {
       if(!drugInfo) {
         c.setFollowupEvent({ name: "query_custom_medication" });
