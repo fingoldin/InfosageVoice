@@ -7,7 +7,7 @@ const fulfillment = require("dialogflow-fulfillment");
 const actions = require("./actions.js");
 
 // Config
-const listen_port = 80;
+const listen_port = 3000;
 const dialogflow_users = {
   "dialogflow": process.env.DIALOGFLOW_PASSWORD
 };
@@ -15,6 +15,10 @@ const dialogflow_users = {
 const app = express();
 
 app.use(bodyParser.json());
+
+app.get("/", (req, res) => {
+  res.send("success");
+});
 
 app.post("/fulfillment", auth({ users: dialogflow_users }), (req, res) => {
   let client = new fulfillment.WebhookClient({ request: req, response: res });
