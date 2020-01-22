@@ -23,7 +23,7 @@ app.get("/", (req, res) => {
 let intentMap = intents.getIntentMap();
 
 app.post("/fulfillment", auth({ users: dialogflow_users }), (req, res) => {
-  console.log("Original request: " + JSON.stringify(req.body));
+  //console.log("Original request: " + JSON.stringify(req.body));
   let client = new fulfillment.WebhookClient({ request: req, response: res });
   client.handleRequest(intentMap);
 });

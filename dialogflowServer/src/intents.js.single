@@ -1,0 +1,115 @@
+"use strict";
+
+const infosageService = require("./infosageService.js");
+
+const getBrandNamesStr = (drugInfo) => {
+  let brandNames = "";
+  for(let i = 0; i < drugInfo.brandNames.length - 1; i++) {
+    brandNames += drugInfo.brandNames[i] + ", ";
+  }
+  if(drugInfo.brandNames.length > 1) {
+    brandNames += "and ";
+  }
+  brandNames += drugInfo.brandNames[drugInfo.brandNames.length - 1];
+  return brandNames;
+}
+
+const checkAddParams = (c, drugInfo) => {
+  let info = c.parameters; // use c.context.get("add_medication_dialog_context") to get originals
+
+  if(!info.brand || drugInfo.brandNames.indexOf(info.brand) === -1) {
+    let brandNames = getBrandNamesStr(drugInfo);
+
+    if(info.brand) {
+      c.add(info.brand + " isn't a brand name for " + info.name + ". " +
+        "The available options are " + brandNames + ". Please tell me the brand name");
+      c.context.set({ name: "add_medication_dialog_params_brand", lifespan: 1 });
+      c.context.delete("add_medication_dialog_params_dosage");
+    } else {
+      c.add("What is the brand name?");
+    }
+  }
+  else if(!info.dosage) {
+    c.add("What is the dosage?");
+  } else {
+    let medicationStr = info.brand + " brand " +
+      info.name + " with a dosage of " + info.dosage.amount + " " +
+      info.dosage.unit + "s";
+    c.add("Are you sure you want to add the following medication: " + medicationStr + "?");
+  }
+}
+
+const intents = {
+  "Add Medication": (c) => {
+    console.log(c.parameters);
+    if(!c.parameters.name) {
+      c.add("What is the name of the medication?");
+    } else {
+      infosageService.get("drugInfo/", { name: c.parameters.name }).then((drugInfo) => {
+        if(!drugInfo) {
+          c.clearOutgoingContexts();
+          c.context.set({ name: "querycustommedication-followup", lifespan: 2, parameters: { name: c.parameters.name } });
+          c.add("We coudn't find information on that medication. Would you still like to add it as a custom record?");
+        } else {
+          checkAddParams(c, drugInfo);
+        }
+      }, (err) => {
+        c.clearOutgoingContexts();
+        c.add("There was an internal error. Please try again later");
+      });
+    }
+  },
+  "Query Custom Medication - yes": (c) => {
+    let name = c.context.get("querycustommedication-followup").parameters.name;
+    c.setFollowupEvent({ name: "add_custom", parameters: { name: name } });
+    c.add("");
+  },
+  "Query Brands": (c) => {
+    let params = c.context.get("add_medication_dialog_params_brand").parameters;
+    infosageService.get("drugInfo/", { name: params.name }).then((drugInfo) => {
+      let brandNames = getBrandNamesStr(drugInfo);
+      c.add("The available brands are " + brandNames + ". Which brand is your medication?");
+    }, (err) => {
+      c.clearOutgoingContexts();
+      c.add("There was an internal error. Please try again later");
+    });
+  },
+  "Query Brands - select.number": (c) => {
+    console.log(c.parameters.number);
+    console.log(c.context.get("querybrands-followup"));
+    c.setFollowupEvent({ name: "add_medication", parameters: { name: name } });
+    c.add("");
+  },
+  "Add Medication - yes": (c) => {
+    let info = c.context.get("addmedication-followup").parameters;
+    infosageService.post("add_medication", {
+      name: info.name,
+      brand: info.brand,
+      dosage: info.dosage
+    }).then(() => {
+      c.add("The medication was added successfully");
+    }, () => {
+      c.add("There was an error adding the medication. Please try again");
+    });
+  },
+  "Add Custom Medication": (c) => {
+    infosageService.post("add_custom_medication", {
+      name: c.parameters.name,
+      dosage: c.parameters.dosage
+    }).then(() => {
+      c.context.delete("adding_medication");
+      c.add("The medication was added successfully");
+    }, () => {
+      c.add("There was an error adding the medication. Please try again");
+    });
+  }
+};
+
+exports.getIntentMap = () => {
+  let map = new Map();
+  for(let intent in intents) {
+    map.set(intent, intents[intent]);
+  }
+
+  return map;
+}

@@ -1,0 +1,100 @@
+"use strict";
+
+const infosageService = require("./infosageService.js");
+
+const ADDING_CONTEXT_LIFETIME = 5;
+
+const checkAddParams = (c) => {
+  let info = c.context.get("adding_medication").parameters;
+  let drugInfo = info.drugInfo;
+
+  if(!info.brand) {
+    let brandNames = "";
+    for(let i = 0; i < drugInfo.brandNames.length - 1; i++) {
+      brandNames += drugInfo.brandNames[i] + ", ";
+    }
+    if(drugInfo.brandNames.length > 1) {
+      brandNames += "and ";
+    }
+    brandNames += drugInfo.brandNames[drugInfo.brandNames.length - 1];
+
+    c.context.set({ name: "add_medication_brand", lifespan: 2 });
+    c.add("What is the brand name? The available options are " + brandNames);
+  } else if(!info.dosage) {
+    c.context.set({ name: "add_medication_dosage", lifespan: 2 });
+    c.add("What is the dosage?");
+  } else {
+    let medicationStr = info["brand.original"] + "-brand " +
+      info["medication.original"] + " with a dosage of " + info["dosage.original"];
+    c.setFollowupEvent({ name: "query_add_medication", parameters: {
+      response: "Are you sure you want to add the following medication: " + medicationStr + "?"
+    } });
+    c.add("");
+  }
+}
+
+const renewAddingContext = (c) => {
+  c.context.set({ name: "adding_medication", lifespan: ADDING_CONTEXT_LIFETIME });
+}
+
+const intents = {
+  "Add Medication": (c) => {
+    infosageService.get("drugInfo/", { name: c.parameters.name }).then((drugInfo) => {
+      if(!drugInfo) {
+        c.setFollowupEvent({ name: "query_custom_medication" });
+        c.add("");
+      } else {
+        checkAddParams(c);
+      }
+    });
+  },
+  "Add Medication Brand": (c) => {
+    let contextParams = c.context.get("adding_medication").parameters;
+
+    if(contextParams.drugInfo.brandNames.indexOf(c.parameters.brand) === -1) {
+      c.setFollowupEvent({ name: "query_custom_medication" });
+      c.add("");
+    } else  {
+      checkAddParams(c);
+      renewAddingContext(c);
+    }
+  },
+  "Add Medication Dosage": (c) => {
+    checkAddParams(c);
+    renewAddingContext(c);
+  },
+  "Query Add Medication - yes": (c) => {
+    let drugInfo = c.context.get("adding_medication").parameters.drugInfo;
+
+    infosageService.post("add_medication", drugInfo).then(() => {
+      c.add("Successfully added the medication");
+    }, () => {
+      c.add("There was an error adding the medication. Please try again");
+    });
+  },
+  "Query Custom Medication - yes": (c) => {
+    c.setFollowupEvent({ name: "add_custom" });
+    c.add("");
+  },
+  "Add Custom Medication": (c) => {
+    infosageService.post("add_custom_medication", {
+      name: c.parameters.name,
+      brand: c.parameters.brand,
+      dosage: c.parameters.dosage
+    }).then(() => {
+      c.context.delete("adding_medication");
+      c.add("The medication was added successfully");
+    }, () => {
+      c.add("There was an error adding the medication. Please try again");
+    });
+  }
+};
+
+exports.getIntentMap = () => {
+  let map = new Map();
+  for(let intent in intents) {
+    map.set(intent, intents[intent]);
+  }
+
+  return map;
+}
