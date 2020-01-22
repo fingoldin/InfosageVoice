@@ -7,6 +7,7 @@ const intents = {
     infosageService.get("drugInfo", { name: c.parameters.name }).then((drugInfo) => {
       if(!drugInfo) {
         c.setFollowupEvent({ name: "query_custom_medication" });
+        c.add("Would you like to");
       } else {
         c.setContext({ name: "add_medication_brand", lifespan: 2, params: { drugInfo: drugInfo } });
 

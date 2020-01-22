@@ -1,0 +1,43 @@
+{
+  "id": "bc02d22d-1410-47e7-8605-26c17475e033",
+  "parentId": "4cdf5071-fa9a-49ae-854d-56c0c263c3c0",
+  "rootParentId": "23502855-0b73-4f6e-9ba5-8a27ec11a331",
+  "name": "Add Medication - name - custom no",
+  "auto": true,
+  "contexts": [
+    "AddMedication-name-followup",
+    "AddMedication-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "AddMedication.AddMedication-custom.AddMedication-name-no",
+      "affectedContexts": [
+        {
+          "name": "AddMedication-followup",
+          "parameters": {},
+          "lifespan": 5
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

@@ -1,0 +1,71 @@
+{
+  "id": "4cdf5071-fa9a-49ae-854d-56c0c263c3c0",
+  "parentId": "23502855-0b73-4f6e-9ba5-8a27ec11a331",
+  "rootParentId": "23502855-0b73-4f6e-9ba5-8a27ec11a331",
+  "name": "Add Medication - name",
+  "auto": true,
+  "contexts": [
+    "AddMedication-followup",
+    "adding_medication_name"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "AddMedication.AddMedication-custom",
+      "affectedContexts": [
+        {
+          "name": "AddMedication-name-followup",
+          "parameters": {},
+          "lifespan": 2
+        },
+        {
+          "name": "AddMedication-followup",
+          "parameters": {},
+          "lifespan": 2
+        }
+      ],
+      "parameters": [
+        {
+          "id": "34743237-f2e9-4228-90a4-3eda6892a22d",
+          "required": true,
+          "dataType": "@medication",
+          "name": "name",
+          "value": "$name",
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "Please tell me the medication name. For example, Viagra"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": true
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": true,
+  "fallbackIntent": false,
+  "events": [
+    {
+      "name": "add_medication_name"
+    }
+  ],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

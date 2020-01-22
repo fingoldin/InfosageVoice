@@ -1,0 +1,52 @@
+[
+  {
+    "id": "cb3df0a0-bd9d-4650-9f76-c1f381b86703",
+    "data": [
+      {
+        "text": "Brand\u0027s ",
+        "userDefined": false
+      },
+      {
+        "text": "Vicodin",
+        "alias": "brand",
+        "meta": "@brand",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "1dd4386a-9acf-4e3a-811d-37ac096f7f69",
+    "data": [
+      {
+        "text": "The brand is ",
+        "userDefined": false
+      },
+      {
+        "text": "Vicodin",
+        "alias": "brand",
+        "meta": "@brand",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "427b65c4-ca3c-42be-b7ca-3b93bf2e1761",
+    "data": [
+      {
+        "text": "Vicodin",
+        "alias": "brand",
+        "meta": "@brand",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

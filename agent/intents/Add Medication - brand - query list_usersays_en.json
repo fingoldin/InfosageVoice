@@ -1,0 +1,62 @@
+[
+  {
+    "id": "907950d5-7eb1-466f-88af-9e953eae1038",
+    "data": [
+      {
+        "text": "What brands can I choose from?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "10d6cbe8-f34b-4254-96a7-f194ab4108ee",
+    "data": [
+      {
+        "text": "What brands are there?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "5fc7c8ec-0fe6-4b3c-abe2-fc12dfb604a8",
+    "data": [
+      {
+        "text": "What are the available brands?",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "181f65ad-5e54-4b4e-81c8-b7019e4a8f7c",
+    "data": [
+      {
+        "text": "List the available brands",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "33edf427-b487-4650-b8ea-3405d7bf00ea",
+    "data": [
+      {
+        "text": "List the available brands again",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

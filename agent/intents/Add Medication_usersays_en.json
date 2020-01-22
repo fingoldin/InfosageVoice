@@ -1,0 +1,110 @@
+[
+  {
+    "id": "f93a17da-6f5f-400c-85c4-af25d063eca4",
+    "data": [
+      {
+        "text": "Please put one more medication",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "268dfaad-d861-4f27-86d3-735905fa61f8",
+    "data": [
+      {
+        "text": "I want to  add a med",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "60d64f99-0205-4e18-a765-65582cbd2305",
+    "data": [
+      {
+        "text": "Add to the list",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "a9d5ee4b-4569-4fd1-855a-a562d90f6232",
+    "data": [
+      {
+        "text": "Please add to the medicine list",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "0acb039c-47ef-4f01-9dfd-8a687506987e",
+    "data": [
+      {
+        "text": "Please add a medication",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "e689c975-0d88-4fa7-92f1-c3e906876a76",
+    "data": [
+      {
+        "text": "I\u0027d like to add to the medicine list",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "a5087d01-37b4-4165-8a3f-43885cd6d080",
+    "data": [
+      {
+        "text": "I\u0027d like to add to the medication list",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "3c458675-0f26-49b7-a8fe-5fb36466990b",
+    "data": [
+      {
+        "text": "Add a medication to the list",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  },
+  {
+    "id": "67943434-f9da-40ab-8c0e-27bc5323af47",
+    "data": [
+      {
+        "text": "I\u0027d like to add a medication",
+        "userDefined": false
+      }
+    ],
+    "isTemplate": false,
+    "count": 0,
+    "updated": 0
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "id": "c0527ac6-0b25-4c55-b5e8-6986c6fa1126",
+  "name": "brand",
+  "isOverridable": true,
+  "isEnum": false,
+  "isRegexp": false,
+  "automatedExpansion": false,
+  "allowFuzzyExtraction": false
+}

@@ -1,0 +1,9 @@
+{
+  "id": "75f03500-344d-4a1f-b4a9-84187a3b7c5e",
+  "name": "dosage",
+  "isOverridable": true,
+  "isEnum": true,
+  "isRegexp": false,
+  "automatedExpansion": false,
+  "allowFuzzyExtraction": false
+}
