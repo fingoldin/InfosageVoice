@@ -1,0 +1,36 @@
+{
+  "id": "bcff0f59-c911-4776-a95b-8126d0458c03",
+  "parentId": "23502855-0b73-4f6e-9ba5-8a27ec11a331",
+  "rootParentId": "23502855-0b73-4f6e-9ba5-8a27ec11a331",
+  "name": "Add Medication - custom",
+  "auto": true,
+  "contexts": [
+    "AddMedication-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": true,
+      "action": "AddMedication.AddMedication-custom",
+      "affectedContexts": [],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

@@ -1,0 +1,9 @@
+{
+  "id": "e0197f19-7073-4862-a1cd-3d714b906a34",
+  "name": "dosage-unit",
+  "isOverridable": true,
+  "isEnum": false,
+  "isRegexp": false,
+  "automatedExpansion": false,
+  "allowFuzzyExtraction": false
+}

@@ -1,0 +1,61 @@
+{
+  "id": "380b4bb8-1302-4f81-b478-2b4ccfedfb27",
+  "parentId": "09f266b6-5a5e-466b-8aba-2e3f64eb42f7",
+  "rootParentId": "23502855-0b73-4f6e-9ba5-8a27ec11a331",
+  "name": "Add Medication - brand - select.number",
+  "auto": true,
+  "contexts": [
+    "AddMedication-followup",
+    "AddMedication-brand-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "AddMedication.AddMedication-custom.AddMedication-brand-selectnumber",
+      "affectedContexts": [
+        {
+          "name": "AddMedication-followup",
+          "parameters": {},
+          "lifespan": 5
+        },
+        {
+          "name": "AddMedication-brand-followup",
+          "parameters": {},
+          "lifespan": 5
+        }
+      ],
+      "parameters": [
+        {
+          "id": "4f4dc88f-b532-4e82-90e8-dbef52b0708f",
+          "required": false,
+          "dataType": "@sys.number",
+          "name": "number",
+          "value": "$number",
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": true
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": false,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

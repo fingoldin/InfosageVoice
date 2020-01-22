@@ -1,0 +1,127 @@
+[
+  {
+    "value": "tab",
+    "synonyms": [
+      "tabs",
+      "pills",
+      "capsules",
+      "tab",
+      "pill",
+      "capsule"
+    ]
+  },
+  {
+    "value": "unit",
+    "synonyms": [
+      "units",
+      "unit"
+    ]
+  },
+  {
+    "value": "milligram",
+    "synonyms": [
+      "milligrams",
+      "mg",
+      "milligram"
+    ]
+  },
+  {
+    "value": "microgram",
+    "synonyms": [
+      "micrograms",
+      "microgram"
+    ]
+  },
+  {
+    "value": "gram",
+    "synonyms": [
+      "gram",
+      "grams",
+      "g"
+    ]
+  },
+  {
+    "value": "milliliter",
+    "synonyms": [
+      "milliliter",
+      "milliliters",
+      "ml",
+      "mls"
+    ]
+  },
+  {
+    "value": "ounce",
+    "synonyms": [
+      "ounce",
+      "ounces",
+      "oz"
+    ]
+  },
+  {
+    "value": "spray",
+    "synonyms": [
+      "spray",
+      "sprays"
+    ]
+  },
+  {
+    "value": "puffs",
+    "synonyms": [
+      "puffs",
+      "puff"
+    ]
+  },
+  {
+    "value": "drop",
+    "synonyms": [
+      "drop",
+      "drops",
+      "gtt"
+    ]
+  },
+  {
+    "value": "pack",
+    "synonyms": [
+      "pack",
+      "packs"
+    ]
+  },
+  {
+    "value": "patch",
+    "synonyms": [
+      "patch",
+      "patches"
+    ]
+  },
+  {
+    "value": "teaspoon",
+    "synonyms": [
+      "teaspoon",
+      "teaspoons",
+      "tsp"
+    ]
+  },
+  {
+    "value": "tablespoon",
+    "synonyms": [
+      "tablespoon",
+      "tablespoons",
+      "tbs"
+    ]
+  },
+  {
+    "value": "international unit",
+    "synonyms": [
+      "international units",
+      "international unit",
+      "IU",
+      "IUs"
+    ]
+  },
+  {
+    "value": "other",
+    "synonyms": [
+      "other"
+    ]
+  }
+]

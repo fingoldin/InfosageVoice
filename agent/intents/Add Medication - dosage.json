@@ -1,0 +1,66 @@
+{
+  "id": "712a0898-d27f-44fa-9e68-1545af75bc26",
+  "parentId": "23502855-0b73-4f6e-9ba5-8a27ec11a331",
+  "rootParentId": "23502855-0b73-4f6e-9ba5-8a27ec11a331",
+  "name": "Add Medication - dosage",
+  "auto": true,
+  "contexts": [
+    "AddMedication-followup",
+    "adding_medication_dosage"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "AddMedication.AddMedication-custom",
+      "affectedContexts": [
+        {
+          "name": "AddMedication-followup",
+          "parameters": {},
+          "lifespan": 2
+        }
+      ],
+      "parameters": [
+        {
+          "id": "9835e158-6d57-4009-8b78-a03a26a9963b",
+          "required": true,
+          "dataType": "@dosage",
+          "name": "dosage",
+          "value": "$dosage",
+          "prompts": [
+            {
+              "lang": "en",
+              "value": "What is the dosage?"
+            },
+            {
+              "lang": "en",
+              "value": "Tell me the dosage"
+            }
+          ],
+          "promptMessages": [],
+          "noMatchPromptMessages": [],
+          "noInputPromptMessages": [],
+          "outputDialogContexts": [],
+          "isList": false
+        }
+      ],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

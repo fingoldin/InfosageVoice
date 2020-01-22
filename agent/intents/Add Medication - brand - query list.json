@@ -1,0 +1,52 @@
+{
+  "id": "1797c8fe-e239-463f-a60f-bac194dbcb9f",
+  "parentId": "09f266b6-5a5e-466b-8aba-2e3f64eb42f7",
+  "rootParentId": "23502855-0b73-4f6e-9ba5-8a27ec11a331",
+  "name": "Add Medication - brand - query list",
+  "auto": true,
+  "contexts": [
+    "AddMedication-followup",
+    "AddMedication-brand-followup"
+  ],
+  "responses": [
+    {
+      "resetContexts": false,
+      "action": "AddMedication.AddMedication-custom.AddMedication-brand-custom",
+      "affectedContexts": [
+        {
+          "name": "AddMedication-followup",
+          "parameters": {},
+          "lifespan": 5
+        },
+        {
+          "name": "AddMedication-brand-followup",
+          "parameters": {},
+          "lifespan": 5
+        }
+      ],
+      "parameters": [],
+      "messages": [
+        {
+          "type": 0,
+          "lang": "en",
+          "condition": "",
+          "speech": []
+        }
+      ],
+      "defaultResponsePlatforms": {},
+      "speech": []
+    }
+  ],
+  "priority": 500000,
+  "webhookUsed": true,
+  "webhookForSlotFilling": false,
+  "fallbackIntent": false,
+  "events": [
+    {
+      "name": "add_medication_brand_list"
+    }
+  ],
+  "conditionalResponses": [],
+  "condition": "",
+  "conditionalFollowupEvents": []
+}

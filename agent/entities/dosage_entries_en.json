@@ -1,0 +1,9 @@
+[
+  {
+    "value": "@sys.number-integer:amount @dosage-unit:unit",
+    "synonyms": [
+      "@sys.number-integer:amount",
+      "@sys.number-integer:amount"
+    ]
+  }
+]
