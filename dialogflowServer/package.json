@@ -7,7 +7,7 @@
     "actions-on-google": "^2.12.0",
     "body-parser": "^1.19.0",
     "dialogflow-fulfillment": "^0.6.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-basic-auth": "^1.2.0",
     "kill-port": "^1.6.0",
     "nodemon": "^2.0.2"
